@@ -1,0 +1,16 @@
+# Nix build outputs
+result
+result-*
+
+# direnv / devenv caches
+.direnv/
+.devenv/
+
+# Editors
+.vscode/
+.idea/
+.helix/
+*.swp
+
+# OS junk
+.DS_Store
