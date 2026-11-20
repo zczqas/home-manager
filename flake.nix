@@ -10,19 +10,19 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    { nixpkgs, home-manager, ... }:
     {
-      homeConfigurations.uwu =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      homeConfigurations.uwu = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-          extraSpecialArgs = {
-            username = "uwu";
-          };
-
-          modules = [
-            ./home.nix
-          ];
+        extraSpecialArgs = {
+          username = "uwu";
         };
+
+        modules = [
+          ./home.nix
+        ];
+      };
     };
 }

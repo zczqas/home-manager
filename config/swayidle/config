@@ -1,0 +1,12 @@
+# Lock after 5 minutes of inactivity
+timeout 300 'swaylock -f'
+
+# Turn off monitors after 10 minutes
+timeout 600 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors'
+
+# Lock before system suspend
+before-sleep 'pgrep -x swaylock >/dev/null || swaylock -f'
+
+# Restore monitors after resume
+after-resume 'niri msg action power-on-monitors'
+

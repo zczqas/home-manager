@@ -33,3 +33,7 @@ recent-windows {
         urgent-color "#ffb4ab"
     }
 }
+
+overview {
+   backdrop-color "#a9cdcf"
+}

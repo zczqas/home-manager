@@ -1,0 +1,40 @@
+daemonize
+show-failed-attempts
+
+# Catppuccin Mocha
+color=1e1e2e
+font='ProggyVector'
+font-size=14
+
+# Indicator
+indicator-radius=80
+indicator-thickness=2
+
+# Default
+inside-color=00000000
+line-color=00000000
+ring-color=b4befe
+text-color=b4befe
+
+# Keyboard highlights
+key-hl-color=fab387
+bs-hl-color=cba6f7
+
+# Clear
+inside-clear-color=00000000
+line-clear-color=89b4fa00
+ring-clear-color=89b4fa
+text-clear-color=89b4fa
+
+# Verifying
+inside-ver-color=00000000
+line-ver-color=a6e3a100
+ring-ver-color=a6e3a1
+text-ver-color=a6e3a1
+
+# Wrong password
+inside-wrong-color=00000000
+line-wrong-color=f38ba800
+ring-wrong-color=f38ba8
+text-wrong-color=f38ba8
+

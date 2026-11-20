@@ -1,0 +1,53 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "spacing": 0,
+
+    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "backlight", "network", "clock"],
+
+    "niri/workspaces": { "format": "{index}" },
+    "niri/window": { "format": "{title}", "max-length": 100 },
+
+    "cpu": {
+        "format": "<span color='#565f89'>cpu</span> {usage}%",
+        "interval": 2,
+        "on-click": "kitty --class btop-float -e btop"
+    },
+    "memory": {
+        "format": "<span color='#565f89'>mem</span> {percentage}%",
+        "interval": 5,
+        "on-click": "kitty --class btop-float -e btop"
+    },
+    "temperature": {
+        "format": "<span color='#565f89'>tem</span> {temperatureC}°C",
+        "critical-threshold": 80
+    },
+    "pulseaudio": {
+        "format": "<span color='#565f89'>vol</span> {volume}%",
+        "format-muted": "<span color='#565f89'>vol</span> mute",
+        "on-click": "pavucontrol"
+    },
+    "backlight": {
+        "format": "<span color='#565f89'>bri</span> {percent}%",
+        "on-scroll-up": "brightnessctl -q set 2%+",
+        "on-scroll-down": "brightnessctl -q set 2%-"
+    },
+    "network": {
+        "format-wifi": "<span color='#565f89'>net</span> on",
+        "format-ethernet": "<span color='#565f89'>net</span> on",
+        "format-disconnected": "<span color='#565f89'>net</span> off",
+        "format-alt": "<span color='#565f89'>net</span> {ipaddr}",
+        "on-click-right": "nm-connection-editor",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "<span color='#565f89'>bat</span> {capacity}%",
+        "states": { "warning": 25, "critical": 10 }
+    },
+    "clock": {
+        "format": "{:%d.%m | %H:%M}",
+        "tooltip": false
+    }
+}

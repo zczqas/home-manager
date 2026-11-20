@@ -1,60 +1,76 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    opts = function(_, opts)
-      opts.options = {
+    opts = {
+      options = {
+        theme = "auto",
+        globalstatus = true,
         component_separators = "",
         section_separators = "",
-      }
+      },
 
-      opts.sections = {
-        lualine_a = {},
-        lualine_b = {},
+      sections = {
+        lualine_a = {
+          {
+            "mode",
+            fmt = function()
+              return vim.fn.mode() == "n" and "NORMAL" or vim.fn.mode():upper()
+            end,
+          },
+        },
+
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+          },
+        },
 
         lualine_c = {
           {
             "filename",
             path = 0,
-            symbols = {
-              modified = " ●",
-              readonly = " 󰌾",
-              unnamed = "[No Name]",
-            },
           },
-          {
-            "branch",
-            icon = "",
-          },
+
           {
             "diff",
             symbols = {
-              added = " ",
-              modified = " ",
-              removed = " ",
+              added = "+",
+              modified = "~",
+              removed = "-",
             },
           },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            symbols = {
-              error = " ",
-              warn = " ",
-              info = " ",
-            },
-          },
-
-          "%=",
         },
 
         lualine_x = {
-          "location",
           "encoding",
-          "filetype",
+          {
+            "filetype",
+            icon = true,
+          },
         },
 
-        lualine_y = {},
-        lualine_z = {},
-      }
-    end,
+        lualine_y = {
+          function()
+            local clients = vim.lsp.get_clients({ bufnr = 0 })
+            if #clients == 0 then
+              return ""
+            end
+
+            return "󰒋 "
+              .. table.concat(
+                vim.tbl_map(function(client)
+                  return client.name
+                end, clients),
+                ", "
+              )
+          end,
+        },
+
+        lualine_z = {
+          "location",
+        },
+      },
+    },
   },
 }
