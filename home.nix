@@ -14,8 +14,6 @@
   home.file = {
     ".config/niri".source = ./config/niri;
 
-    ".config/foot".source = ./config/foot;
-
     ".config/kitty".source = ./config/kitty;
 
     ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
@@ -26,8 +24,6 @@
     ".config/zathura".source = ./config/zathura;
 
     ".config/yazi".source = ./config/yazi;
-
-    ".config/ghostty".source = ./config/ghostty;
 
     ".config/fuzzel".source = ./config/fuzzel;
 
